@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Online Book Store India | Buy Books Online Cheap | Utkarsh Book Store</title>
+
+<meta name="description" content="Buy books online in India at affordable prices. Shop best selling books, NCERT books, educational books, used books and discounted books online at Utkarsh Book Store.">
+
+<meta name="keywords" content="
+keyword research for online book store,
+online book store,
+online book store in india,
+himalaya book store online,
+book store online shopping,
+online old book store,
+buy books online,
+ncert buy books online,
+buy books online india cheap,
+best selling books,
+best selling books of all time,
+school books online buy,
+top 10 best selling books of all time,
+best selling books in india
+">
+
+<meta name="author" content="Utkarsh Book Store">
+<meta property="og:title" content="Utkarsh Book Store - Buy Books Online India">
+<meta property="og:description" content="Affordable online book store in India. Best selling, educational & second hand books available.">
+<meta property="og:type" content="website">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    color: orange;
+}
+
+nav {
+    background-color: #34495e;
+    padding: 10px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: orange;
+}
+
+.container {
+    padding: 20px;
+}
+
+.aim {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.search-box {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.search-box input {
+    padding: 8px;
+    width: 250px;
+}
+
+.categories {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.categories button {
+    background-color: orange;
+    color: white;
+    padding: 8px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.categories button:hover {
+    background-color: #e67e22;
+}
+
+.products {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.product {
+    background-color: white;
+    width: 220px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width: 150px;
+    height: 220px;
+}
+
+.product h3 {
+    margin: 10px 0 5px;
+}
+
+.product p {
+    color: green;
+    font-weight: bold;
+}
+
+.product button {
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.product button:hover {
+    background-color: #219150;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.contact-form button {
+    background-color: #27ae60;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Utkarsh Book Store - Buy Books Online India</h1>
+    <p>Your Knowledge Partner</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#categorySection">Categories</a>
+    <a href="#booksSection">Books</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+<p class="aim">
+<strong>Our Aim:</strong> Utkarsh Book Store is a leading online book store in India where you can buy books online cheap including NCERT books, educational books, best selling books, used books and discounted books online with fast delivery.
+</p>
+
+<div id="categorySection">
+    <h2>Book Categories</h2>
+    <p>
+        We offer Historical, Fiction, Educational, Biography and Science books.
+        Buy books online India with affordable pricing.
+    </p>
+</div>
+
+<div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search books online..." onkeyup="displayBooks()">
+</div>
+
+<div class="categories">
+    <button onclick="filterBooks('All')">All</button>
+    <button onclick="filterBooks('Historical')">Historical</button>
+    <button onclick="filterBooks('Fiction')">Fiction</button>
+    <button onclick="filterBooks('Educational')">Educational</button>
+    <button onclick="filterBooks('Biography')">Biography</button>
+    <button onclick="filterBooks('Science')">Science</button>
+</div>
+
+<div id="booksSection">
+    <h2>Available Books - Buy Online</h2>
+</div>
+
+<div class="products" id="productContainer"></div>
+
+<h2 id="contact" style="text-align:center; margin-top:40px;">Contact Us</h2>
+
+<div class="contact-form" style="max-width:400px; margin:0 auto; text-align:center;">
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="email" id="email" placeholder="Your Email">
+    <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+    <button onclick="submitContact()">Send Message</button>
+    <p id="formMessage"></p>
+</div>
+
+</div>
+
+<div style="padding:20px; text-align:center; background:#ecf0f1;">
+<h3>Buy Books Online in India</h3>
+<p>
+Utkarsh Book Store is one of the best online book stores in India.
+You can buy books online cheap including best selling books,
+NCERT books, educational books for kids, second hand books and discounted books online.
+</p>
+</div>
+
+<footer>
+<p>2026 Utkarsh Book Store | Online Book Store India</p>
+</footer>
+
+<script>
+
+const books = [
+    { 
+      name: "Panipat", 
+      price: 402, 
+      category: "Historical", 
+      image: "images/panipat.jpeg",
+      link: "https://www.amazon.in/s?k=Panipat+book"
+    },
+    { 
+      name: "Yayati", 
+      price: 272, 
+      category: "Fiction", 
+      image: "images/yayati.jpeg",
+      link: "https://www.amazon.in/s?k=Yayati+book"
+    },
+    { 
+      name: "Java Programming", 
+      price: 400, 
+      category: "Educational", 
+      image: "images/java.jpeg",
+      link: "https://www.amazon.in/s?k=Java+Programming+book"
+    },
+    { 
+      name: "Wings of Fire", 
+      price: 406, 
+      category: "Biography", 
+     image: "images/wingsoffire.webp",
+
+      link: "https://www.amazon.in/s?k=Wings+of+Fire+book"
+    },
+    { 
+      name: "Mrutunjay", 
+      price: 460, 
+      category: "Fiction", 
+      image: "images/mrutunjay.jpeg",
+      link: "https://www.amazon.in/s?k=Mrutunjay+book"
+    },
+    { 
+      name: "Rich Dad Poor Dad", 
+      price: 304, 
+      category: "Educational", 
+      image: "images/richdad.webp",
+      link: "https://www.amazon.in/s?k=Rich+Dad+Poor+Dad+book"
+    },
+    { 
+      name: "The Discovery of India", 
+      price: 399, 
+      category: "Historical", 
+      image: "images/discovery.webp",
+      link: "https://www.amazon.in/s?k=Discovery+of+India+book"
+    },
+    { 
+      name: "Brief History of Time", 
+      price: 308, 
+      category: "Science", 
+      image: "images/historyoftime.jpeg",
+      link: "https://www.amazon.in/s?k=Brief+History+of+Time+book"
+    },
+    { 
+      name: "Atomic Habits", 
+      price: 491, 
+      category: "Biography", 
+      image: "images/atomic.jpeg",
+      link: "https://www.amazon.in/s?k=Atomic+Habits+book"
+    },
+    { 
+      name: "Phakira", 
+      price: 170, 
+      category: "Fiction", 
+      image: "images/phakira.jpeg",
+      link: "https://www.amazon.in/s?k=Phakira+book"
+    }
+];
+let currentCategory = "All";
+
+function displayBooks() {
+    const container = document.getElementById("productContainer");
+    container.innerHTML = "";
+    const searchText = document.getElementById("searchInput").value.toLowerCase();
+
+    const filteredBooks = books.filter(book => {
+        const matchesCategory = currentCategory === "All" || book.category === currentCategory;
+        const matchesSearch = book.name.toLowerCase().includes(searchText);
+        return matchesCategory && matchesSearch;
+    });
+
+    filteredBooks.forEach(book => {
+        container.innerHTML += `
+            <div class="product">
+                <img src="${book.image}" alt="${book.name} buy books online India">
+                <h3>${book.name}</h3>
+                <p>₹${book.price}</p>
+                <a href="${book.link}" target="_blank">
+   <button>Buy Books Online</button>
+</a>
+
+            </div>
+        `;
+    });
+}
+
+function filterBooks(category) {
+    currentCategory = category;
+    displayBooks();
+}
+
+function addToCart(bookName) {
+    alert(bookName + " added to cart!");
+}
+
+function submitContact() {
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const formMessage = document.getElementById("formMessage");
+
+    if (name === "" || email === "" || message === "") {
+        formMessage.style.color = "red";
+        formMessage.innerText = "Please fill all fields!";
+        return;
+    }
+
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    if (!email.match(emailPattern)) {
+        formMessage.style.color = "red";
+        formMessage.innerText = "Please enter a valid email!";
+        return;
+    }
+
+    formMessage.style.color = "green";
+    formMessage.innerText = "Message sent successfully!";
+}
+
+displayBooks();
+
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BookStore",
+  "name": "Utkarsh Book Store",
+  "description": "Online book store in India to buy books online cheap including educational and best selling books.",
+  "areaServed": "India"
+}
+</script>
+
+</body>
+</html>
