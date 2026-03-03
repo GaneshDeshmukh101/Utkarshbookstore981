@@ -223,15 +223,19 @@ footer {
 
 <h2 id="contact" style="text-align:center; margin-top:40px;">Contact Us</h2>
 
-<div class="contact-form" style="max-width:400px; margin:0 auto; text-align:center;">
-    <input type="text" id="name" placeholder="Your Name">
-    <input type="email" id="email" placeholder="Your Email">
-    <textarea id="message" rows="4" placeholder="Your Message"></textarea>
-    <button onclick="submitContact()">Send Message</button>
-    <p id="formMessage"></p>
-</div>
+<form id="contactForm" class="contact-form"
+      action="https://formspree.io/f/xgolgwnb"
+      method="POST"
+      style="max-width:400px; margin:0 auto; text-align:center;">
 
-</div>
+    <input type="text" id="name" name="name" placeholder="Your Name">
+    <input type="email" id="email" name="email" placeholder="Your Email">
+    <textarea id="message" name="message" rows="4" placeholder="Your Message"></textarea>
+
+    <button type="submit">Send Message</button>
+    <p id="formMessage"></p>
+</form>
+
 
 <div style="padding:20px; text-align:center; background:#ecf0f1;">
 <h3>Buy Books Online in India</h3>
@@ -358,7 +362,10 @@ function addToCart(bookName) {
     alert(bookName + " added to cart!");
 }
 
-function submitContact() {
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
@@ -370,17 +377,33 @@ function submitContact() {
         return;
     }
 
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
     if (!email.match(emailPattern)) {
         formMessage.style.color = "red";
         formMessage.innerText = "Please enter a valid email!";
         return;
     }
 
-    formMessage.style.color = "green";
-    formMessage.innerText = "Message sent successfully!";
-}
-
+    fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            formMessage.style.color = "green";
+            formMessage.innerText = "Message sent successfully!";
+            form.reset();
+        } else {
+            formMessage.style.color = "red";
+            formMessage.innerText = "Something went wrong. Try again.";
+        }
+    }).catch(() => {
+        formMessage.style.color = "red";
+        formMessage.innerText = "Network error. Try again.";
+    });
+});
 displayBooks();
 
 </script>
@@ -397,4 +420,5 @@ displayBooks();
 
 </body>
 </html>
+
 
